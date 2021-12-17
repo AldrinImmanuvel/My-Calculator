@@ -1,0 +1,97 @@
+import tkinter
+import tkinter as tk
+
+t = tk.Tk()
+t.title("Calculator")
+t.geometry('500x500')
+equation=tk.StringVar()
+entry1 = tk.Entry(t, font=('Times New Roman', 12), width=100, justify='right',textvariable=equation)
+entry1.pack(padx=50, pady=30)
+
+express = " "
+def press_button(a):
+    global express
+    express = express+str(a)
+    equation.set(express)
+def equalbutton():
+    global express
+    total = str(eval(express))
+    equation.set(total)
+def deletebutton():
+    global express
+    equation.set(" ")
+    express=" "
+def btndelete():
+    global express
+    express=express[:-1]
+    equation.set(express)
+
+btnc = tk.Button(t, text='Close', bd='5', command=t.destroy)
+btnc.pack(side='bottom')
+
+btn1 = tk.Button(t, text='C', bd='3', padx=18, pady=13,command=lambda: deletebutton())
+btn1.place(x=49, y=135)
+
+btn2 = tk.Button(t, text='%', bd='3', padx=15, pady=13,command=lambda: press_button("%"))
+btn2.place(x=105, y=135)
+
+btn3 = tk.Button(t, text='DEL', bd='3', padx=12, pady=13,command=lambda: btndelete())
+btn3.place(x=154, y=135)
+
+btn4 = tk.Button(t, text='7', bd='3', padx=18, pady=13,command=lambda: press_button("7"))
+btn4.place(x=50, y=185)
+
+btn5 = tk.Button(t, text='8', bd='3', padx=18, pady=13,command=lambda: press_button("8"))
+btn5.place(x=102, y=185)
+
+btn6 = tk.Button(t, text='6', bd='3', padx=18, pady=13,command=lambda: press_button("6"))
+btn6.place(x=154, y=235)
+
+btn7 = tk.Button(t, text='4', bd='3', padx=18, pady=13,command=lambda: press_button("4"))
+btn7.place(x=50, y=235)
+
+btn8 = tk.Button(t, text='5', bd='3', padx=18, pady=13,command=lambda: press_button("5"))
+btn8.place(x=102, y=235)
+
+btn9 = tk.Button(t, text='9', bd='3', padx=18, pady=13,command=lambda: press_button("9"))
+btn9.place(x=154, y=185)
+
+btn10 = tk.Button(t, text='1', bd='3', padx=18, pady=13,command=lambda: press_button("1"))
+btn10.place(x=50, y=285)
+
+btn11 = tk.Button(t, text='2', bd='3', padx=18, pady=13,command=lambda: press_button("2"))
+btn11.place(x=102, y=285)
+
+btn12 = tk.Button(t, text='3', bd='3', padx=18, pady=13,command=lambda: press_button("3"))
+btn12.place(x=154, y=285)
+
+btn13 = tk.Button(t, text='+', bd='3', padx=16, pady=13,command=lambda: press_button("+"))
+btn13.place(x=206, y=285)
+
+btn14 = tk.Button(t, text='-', bd='3', padx=18, pady=13,command=lambda: press_button("-"))
+btn14.place(x=206, y=235)
+
+btn15 = tk.Button(t, text='*', bd='3', padx=17, pady=13,command=lambda: press_button("*"))
+btn15.place(x=206, y=185)
+
+btn16 = tk.Button(t, text='/', bd='3', padx=18, pady=13,command=lambda: press_button("/"))
+btn16.place(x=206, y=135)
+
+btn17 = tk.Button(t, text='00', bd='3', padx=15, pady=13,command=lambda: press_button("00"))
+btn17.place(x=50, y=335)
+
+btn18 = tk.Button(t, text='0', bd='3', padx=17, pady=13,command=lambda: press_button("0"))
+btn18.place(x=102, y=335)
+
+btn19 = tk.Button(t, text='.', bd='3', padx=19, pady=13,command=lambda: press_button("."))
+btn19.place(x=153, y=335)
+
+btn20 = tk.Button(t, text='=', bd='3', padx=16, pady=13,command=lambda: equalbutton())
+btn20.place(x=206, y=335)
+
+
+t.mainloop()
+
+
+
+
